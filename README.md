@@ -29,10 +29,7 @@ Raise public awareness about wealth gaps through accessible data visualization
 Provide educators with a tool to teach about economic inequality
 ## Data Sources
 
-
-
-
-
+The data is obtained from the Luxembourg Income Study, taking the household datasets of the United States. The data is accessed through the LISSY software of the Luxembourg Income Study, where we extracted summary statistics of home ownership at relevant income percentiles. This data, extracted using R, is then collected into a dataset, in which we used Python to analyze and Streamlit to deploy.
 
 # Who is this for?
 
