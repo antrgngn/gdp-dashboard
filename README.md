@@ -27,13 +27,6 @@ This project is an interactive data visualization tool designed to explore homeo
 
 ---
 
-## About Us
-We are a team of students dedicated to studying economic inequality and its societal impacts. This project was developed as part of our coursework to apply concepts of income, inequality, and intergenerational mobility to real-world data.
-
-Our mission is to make complex inequality data comprehensible and actionable, fostering informed discussions and promoting awareness of wealth disparities. We hope this tool serves as a resource for policymakers, researchers, educators, and the general public.
-
----
-
 ## Who Is This For?
 This tool is designed for:
 - **Policymakers**: To use data-driven insights for crafting housing policies.
