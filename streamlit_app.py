@@ -112,7 +112,8 @@ color_scales = {
     "ownership_rate_bottom_40": (data["ownership_rate_bottom_40"].min(), data["ownership_rate_bottom_40"].max()),
     "ownership_rate_bottom_10": (data["ownership_rate_bottom_10"].min(), data["ownership_rate_bottom_10"].max()),
     "ownership_ratio_90_40": (data["ownership_ratio_90_40"].min(), data["ownership_ratio_90_40"].max()),
-    "ownership_ratio_90_10": (data["ownership_ratio_90_10"].min(), data["ownership_ratio_90_10"].max())
+    "ownership_ratio_90_10": (data["ownership_ratio_90_10"].min(), data["ownership_ratio_90_10"].max()),
+    "gini": (data["gini"].min(), data["ownership_ratio_90_10"].max())
 }
 
 # Main function to set up the app
@@ -140,8 +141,15 @@ def data_page():
 
     st.write("This dashboard provides an interactive exploration of inequality metrics across the United States. The graphs below highlight different aspects of wealth distribution, such as homeownership rates and inequality ratios. Each graph is accompanied by an explanatory section to help you understand its significance and interpret the data effectively.")
 
+    def get_variable_description(selected_variable_label):
+        if "Gini" in selected_variable_label:
+            return f"The **{selected_variable_label}** demonstrates income inequality within each state. The Gini coefficient ranges from 0 to 1, where 0 represents perfect equality (everyone has the same income) and 1 represents perfect inequality (one person has all the income). States with higher coefficients indicate greater income disparity among their residents, while lower coefficients suggest more evenly distributed income. This metric helps policymakers and researchers understand the extent of economic inequality in different regions."
+        else:
+            return f"The **{selected_variable_label}** graph shows the proportion of homeownership across different states in the US. A higher value indicates a greater percentage of residents who own homes. This metric helps to identify regions with high or low homeownership, often linked to economic conditions, housing affordability, and income levels. For instance, states with higher ownership rates might reflect strong housing markets or more equitable wealth distribution."
+
     # Dropdown for variable selection
     variable_options = {
+        "Gini coefficient": "gini",
         "Ownership Rate (Total)": "ownership_rate_total",
         "Ownership Rate (Top 10%)": "ownership_rate_top_10",
         "Ownership Rate (Bottom 40%)": "ownership_rate_bottom_40",
@@ -150,6 +158,7 @@ def data_page():
     selected_variable_label = st.selectbox("Select Variable", list(variable_options.keys()))
     selected_variable = variable_options[selected_variable_label]
 
+    
     # Ownership rates visualization
     st.write("#### Ownership Rates Visualization")
 
@@ -193,10 +202,15 @@ def data_page():
             range_color=(0.3, 1)  # Fix the color scale
         )
 
+        # Rest of your visualization code remains the same until the explanatory section...
+
         st.plotly_chart(ownership_fig, use_container_width=True)
 
-        # Explanatory section for ownership rates
-        st.write(f"The **{selected_variable_label}** graph shows the proportion of homeownership across different states in the US. A higher value indicates a greater percentage of residents who own homes. This metric helps to identify regions with high or low homeownership, often linked to economic conditions, housing affordability, and income levels. For instance, states with higher ownership rates might reflect strong housing markets or more equitable wealth distribution.")
+        # Explanatory section for the selected variable
+        st.write(get_variable_description(selected_variable_label))
+
+    # Continue with your ownership ratios visualization...
+
 
     # Ownership ratios visualization
     st.write("#### Ownership Ratios Visualization")
@@ -221,6 +235,8 @@ def data_page():
     )
 
     st.write("Year Selected: ", ratio_selected_year)
+
+    
 
     # Filter data by selected year for ratios
     ratio_filtered_data = data[data['year'] == ratio_selected_year]
@@ -249,8 +265,14 @@ def data_page():
 
         st.plotly_chart(ratio_fig, use_container_width=True)
 
+        def get_variable_description(selected_variable_label):
+            if "Gini" in selected_variable_label:
+                return f"The **{selected_variable_label}** demonstrates income inequality within each state. The Gini coefficient ranges from 0 to 1, where 0 represents perfect equality (everyone has the same income) and 1 represents perfect inequality (one person has all the income). States with higher coefficients indicate greater income disparity among their residents, while lower coefficients suggest more evenly distributed income. This metric helps policymakers and researchers understand the extent of economic inequality in different regions."
+            else:
+                return f"The **{selected_variable_label}** graph shows the proportion of homeownership across different states in the US. A higher value indicates a greater percentage of residents who own homes. This metric helps to identify regions with high or low homeownership, often linked to economic conditions, housing affordability, and income levels. For instance, states with higher ownership rates might reflect strong housing markets or more equitable wealth distribution."
+
         # Explanatory section for ownership ratios
-        st.write(f"The **{selected_ratio_label}** graph illustrates inequality in homeownership distribution between different economic groups. A higher ratio indicates a larger disparity between the wealthiest and less affluent segments of the population. For example, a ratio of 2 means the top group owns twice as much as the lower group. Understanding these ratios helps to analyze wealth concentration and the effectiveness of policies aimed at reducing economic inequality.")
+        st.write(get_variable_description(selected_variable_label))
 
 if __name__ == "__main__":
     main()
