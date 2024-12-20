@@ -119,17 +119,17 @@ color_scales = {
 def main():
     # Sidebar for navigation
     st.sidebar.title("Navigation")
-    menu = ["About Us", "About this project", "Who is this for?", "Data", "Product Evaluation"]
+    menu = ["Dashboard", "About Us", "About this project", "Who is this for?", "Product Evaluation"]
     choice = st.sidebar.radio("Go to:", menu)
 
-    if choice == "About Us":
+    if choice == "Dashboard":
+        data_page()
+    elif choice == "About Us":
         about_us()
     elif choice == "About this project":
         about_project()
     elif choice == "Who is this for?":
         who_is_this_for()
-    elif choice == "Data":
-        data_page()
     elif choice == "Product Evaluation":
         data_limitations()
 
