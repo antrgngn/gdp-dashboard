@@ -1,53 +1,90 @@
-# :earth_americas: Inequality dashboard -- United States home ownership
+# :earth_americas: Interactive US Inequality Map
 
-# About Us
+## About Us
 
 We are a group of three Minerva University undergraduate students (An Nguyen, Tim Podkopayev, and Koosha Azim)  interested in wealth inequality and other economic phenomena impacting our global lives. We created this interactive tool to apply what we learned about measuring inequality in our IL181.008 - Quantitative Analysis Of Income, Inequality, And Intergenerational Mobility class.
 
-# About this project
+## About This Project
+This project is an interactive data visualization tool designed to explore homeownership inequality across the United States from 1978 to 2023. Using choropleth maps and interactive filters, the tool highlights disparities in wealth distribution across income groups and regions.
 
-## Project Overview
-An interactive data visualization tool that maps homeownership inequality across U.S. states from 1978 to 2023
-Uses color-coded choropleth maps to show disparities between income groups in different regions
-Allows users to explore both absolute ownership rates and relative inequality ratios
-## Key Objectives
-Make complex wealth inequality data accessible and understandable through visual storytelling
-Track how homeownership gaps have evolved over time across different states
-Compare ownership rates between top 10% and bottom 40% income groups to reveal economic disparities
-Enable data-driven conversations about housing inequality in America
-## Features
-Interactive year selection spanning five decades
-Multiple metrics including total ownership rates and income-group specific rates
-Dual visualization showing both rates and ratios
-State-by-state comparison capabilities
-Consistent color scales for easy comparison across years
-## Expected Impact
-Support evidence-based policy discussions around housing inequality
-Help researchers identify patterns and trends in homeownership disparities
-Enable community organizations to better understand local housing challenges
-Raise public awareness about wealth gaps through accessible data visualization
-Provide educators with a tool to teach about economic inequality
+### Key Objectives
+- Make wealth inequality data accessible through visual storytelling.
+- Analyze trends in homeownership over five decades.
+- Compare homeownership rates among income groups to highlight disparities.
+- Facilitate data-driven discussions about housing inequality.
+
+### Features
+- **Interactive Filters**: Explore data across years and metrics with dynamic sliders and dropdown menus.
+- **Multiple Metrics**: Visualize both absolute homeownership rates and relative inequality ratios.
+- **Regional Insights**: State-level granularity to understand geographic disparities.
+- **Explanatory Context**: Accompanied by detailed insights to make the data accessible to non-experts.
+
+### Expected Impact
+- **Policy Development**: Support informed decisions on housing policies.
+- **Educational Tool**: Enable educators to teach concepts of economic inequality.
+- **Public Awareness**: Raise awareness about wealth disparities in America.
+- **Community Empowerment**: Help organizations identify local housing challenges.
+
+---
+
+## About Us
+We are a team of students dedicated to studying economic inequality and its societal impacts. This project was developed as part of our coursework to apply concepts of income, inequality, and intergenerational mobility to real-world data.
+
+Our mission is to make complex inequality data comprehensible and actionable, fostering informed discussions and promoting awareness of wealth disparities. We hope this tool serves as a resource for policymakers, researchers, educators, and the general public.
+
+---
+
+## Who Is This For?
+This tool is designed for:
+- **Policymakers**: To use data-driven insights for crafting housing policies.
+- **Students and Researchers**: To explore long-term trends in wealth distribution.
+- **Community Organizations**: To identify and address regional housing disparities.
+- **Concerned Citizens**: To gain a clearer understanding of economic inequality.
+
+The user-friendly interface ensures that even those without technical expertise can engage with the data. The tool also provides enough depth for basic academic or policy analysis, making it suitable for a wide audience.
+
+---
+
 ## Data Sources
+The data is sourced from the Luxembourg Income Study (LIS) and includes summary statistics of homeownership at relevant income percentiles. The dataset spans 1978 to 2023, offering a long-term perspective on wealth inequality.
 
-The data is obtained from the Luxembourg Income Study, taking the household datasets of the United States. The data is accessed through the LISSY software of the Luxembourg Income Study, where we extracted summary statistics of home ownership at relevant income percentiles. This data, extracted using R, is then collected into a dataset, in which we used Python to analyze and Streamlit to deploy.
+### Strengths of the Data
+- Spanning 45 years for historical insights.
+- Consistent measurement methods across states and time.
+- State-level granularity for regional comparisons.
 
-# Who is this for?
+### Limitations
+- Does not include within-state or city-level data.
+- Focused on homeownership, which is only one aspect of wealth inequality.
+- Five-year intervals may overlook short-term changes.
 
-The tool would be valuable for policy researchers, students, community organizers, and concerned citizens who want to explore how homeownership rates vary across different income groups and states over time. Its user-friendly interface, with simple dropdown menus and slider controls, makes complex inequality data accessible to people without technical backgrounds, while still providing enough depth through multiple metrics (ownership rates and ratios) to be useful for some basic academic or policy analysis. The visualization of ownership disparities between top 10% and bottom 40% income groups helps illustrate wealth gaps in a tangible way that could inform public discourse and policy discussions about economic inequality in America.
+---
 
+## Future Improvements
+- Adding metropolitan-level data for finer geographic detail.
+- Incorporating housing quality and property value metrics.
+- Including racial and ethnic demographic data for comprehensive analysis.
+- Expanding to include alternative wealth inequality indicators.
 
-[![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://gdp-dashboard-template.streamlit.app/)
+---
 
-# How to run it on your own machine
+## How to Use
+1. Launch the interactive dashboard using Streamlit.
+2. Use the sidebar navigation to explore:
+   - **About Us**: Learn about the creators and their goals.
+   - **About this Project**: Understand the tool’s purpose and features.
+   - **Who is this For?**: Identify the target audience.
+   - **Data**: Dive into interactive visualizations.
+3. Select metrics and timeframes to explore data trends.
+4. Read the accompanying explanations to interpret the visualizations.
 
-1. Install the requirements
+---
 
-   ```
-   $ pip install -r requirements.txt
-   ```
-
-2. Run the app
-
-   ```
-   $ streamlit run streamlit_app.py
-   ```
+## Setup Instructions
+1. Clone the repository to your local machine.
+2. Install dependencies using:
+   ```bash
+   pip install -r requirements.txt
+3. Run the Streamlit app
+   streamlit run app.py
+4. Open the dashboard in your browser at http://localhost:8501.
