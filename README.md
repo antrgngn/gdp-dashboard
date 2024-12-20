@@ -1,4 +1,4 @@
-# :earth_americas: GDP dashboard template
+# :earth_americas: Inequality dashboard -- United States home ownership
 
 # About Us
 
